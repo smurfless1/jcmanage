@@ -13,12 +13,20 @@
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Blanket ban of all area codes we don't approve.
+# Blanket ban of all area codes we don't approve. Codes written to stdout.
 # good list: where we live plus general purpose area codes.
+from lib.blacklistentry import blacklistEntry
+
 goodcodes = [ 281, 341, 315, 369, 385, 408, 415, 510, 503, 627, 628, 650, 669, 737, 764,
               800, 801, 818, 822, 833, 844, 855, 866, 877, 888, 916 ]
 
 for i in range(0,1000):
     if i not in goodcodes:
-        print "NMBR = %03d?        032510        BAD AREA CODE" % i
+        entry = blacklistEntry()
+        entry.setTestField('NMBR = %03d' % i)
+        entry.setDate('032510')
+        entry.setComment('IGNORING')
+        print entry
+
+        #print "NMBR = %03d?        032510        BAD AREA CODE" % i
 

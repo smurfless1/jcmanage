@@ -16,7 +16,7 @@
 import urllib
 import urllib2
 
-from ratelimited import RateLimited
+from lib.ratelimited import RateLimited
 
 
 class whocalled:
