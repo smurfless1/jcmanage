@@ -22,6 +22,7 @@ from selenium.common.exceptions import NoSuchElementException
 class whocallsme:
     """
     This tries to grade a caller based on information found on WhoCallsMe.com
+    TODO move to beautifulsoup library instead of selenium
     """
 
     def __init__(self):
@@ -67,6 +68,7 @@ class whocallsme:
 
 if __name__ == '__main__':
     wc = whocallsme()
-    score = wc.getScore('01233648537')
+    import sys
+    score = wc.getScore(sys.argv[1])
     print score
 
