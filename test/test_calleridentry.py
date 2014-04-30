@@ -16,7 +16,7 @@
 import unittest
 
 import fudge
-from calleridentry import callerIdEntry
+from lib.calleridentry import callerIdEntry
 
 
 class TestCallerIdEntry(unittest.TestCase):

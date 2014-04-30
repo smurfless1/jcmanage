@@ -1,7 +1,6 @@
 #!/bin/bash
 
-python -m unittest test_blacklist
-python -m unittest test_blacklistentry
-python -m unittest test_calleridentry
-python -m unittest test_calleridlist
-
+files=`ls test/test*.py | sed 's/\.py//' | sed 's:/:.:' | sort`
+for i in $files ; do
+    python -m unittest $i
+done

@@ -15,7 +15,7 @@
 
 import unittest
 
-from calleridlist import callerIdList
+from lib.calleridlist import callerIdList
 
 
 class TestCallerIdList(unittest.TestCase):

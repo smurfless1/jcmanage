@@ -15,8 +15,8 @@
 
 import unittest
 
-from blacklistentry import blacklistEntry
-from blacklist import blacklist
+from lib.blacklistentry import blacklistEntry
+from lib.blacklist import blacklist
 
 
 class TestBlacklistList(unittest.TestCase):
