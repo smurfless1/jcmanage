@@ -57,7 +57,7 @@ class TestBlacklistEntry(unittest.TestCase):
         entry.setTestField('NMBR = 002')
         entry.setDate('060606')
         entry.setComment('')
-        self.assertEquals(entry.getKey(), 'asdf?              ')
+        self.assertEquals(entry.getKey(), 'NMBR = 002?        ')
 
     def test_equals(self):
         entry = blacklistEntry()

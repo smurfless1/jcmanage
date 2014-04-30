@@ -1,0 +1,7 @@
+#!/bin/bash
+
+python -m unittest test_blacklist
+python -m unittest test_blacklistentry
+python -m unittest test_calleridentry
+python -m unittest test_calleridlist
+
