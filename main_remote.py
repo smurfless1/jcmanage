@@ -21,7 +21,7 @@ import sys
 
 from calleridlist import callerIdList
 from blacklist import blacklist
-from lib import callercomplaints
+import callercomplaints
 from whocalledus import whocalled
 from whocallsme import whocallsme
 
