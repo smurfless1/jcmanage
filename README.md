@@ -14,13 +14,17 @@ Number finders
 
 There are three phone number finder classes currently. One each for whocallsme, whocalled.us, and callercomplaints. The idea is that each can be called individually as a program, or can be imported and called as a library to look up a score for a number. These are used to help a user decide if this should be blacklisted.
 
+I'm really open to ideas on how to do this better and use other sites. Especially if you do the work. Me sitting in front of the olympics resulted in this, so you know, go for the bronze and write an adapter for us.
+
+The one I'm really waiting for is the one that will let you prepopulate the FCC complaint page forms. I'm not looking to cheat, but I'm tired of having to do it manually.
+
 Programs
 ========
 
-livelookup has many dependencies, but on my Mac OS Mavericks install, when a call comes in I get a Notification Center popup with the score from whocallsme.
-main.py is meant to run over ssh, where there is no UI and the user should respond by text. It works better as an example for something bigger.
-main_remote is meant to be run using the same data, but on a system with a UI.
-makeBadEntries creates in stdout a blacklist format text list with all area codes except those from an array in the code. If you don't know anyone in Forida and Forida is calling, pretty sure it's safe to hang up. Be aware your bank may have someone down there, so be careful with it.
+* livelookup has many dependencies. On my Mac OS Mavericks install, when a call comes in I get a Notification Center popup with the score from whocallsme, then I laugh as the scumbag gets what's coming to them. Click click!
+* main.py is meant to run over ssh, where there is no UI and the user should respond by text. It works better if you think of it as an example for something bigger, like an eventual web app.
+* main_remote is meant to be the same as main, but on a system with a UI, so I could have selenium bring up the page and wait for me to read the reports.
+* makeBadEntries generates blacklist-quality text to stdout. It will create a block pattern for every area code, except the ones you leave enabled. I don't know anyone in Louisiana, so they can't call me. Just remember your bank's call center might be in Louisiana, which might turn out to be bad for you.
 
 Phone number lookup class/programs
 ----------------------------------
