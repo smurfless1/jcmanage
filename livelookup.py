@@ -24,8 +24,8 @@ from lib.calleridentry import callerIdEntry
 # sample input: --DATE = 032914--TIME = 1007--NMBR = 8885551212--NAME = V32913072900491--
 pattern = re.compile('.-DATE = (.*)--TIME = (.*)--NMBR = (.*)--NAME = (.*)--')
 
-raise NotImplementedError  # when you put in your password, take this out
-wc = whocalled('YourUserName', 'YourPassword')
+#raise NotImplementedError  # when you put in your password, take this out
+wc = whocalled('TheSmurflessOne', 'whomper')
 
 s = socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
