@@ -20,8 +20,7 @@ from lib.ratelimited import RateLimited
 
 class callercomplaints:
     """
-sudo pip install beautifulsoup4 html5lib lxml
-sudo easy_install mechanize
+sudo pip install beautifulsoup4 html5lib lxml mechanize
     """
 
     def __init__(self):
