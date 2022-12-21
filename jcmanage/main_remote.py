@@ -17,30 +17,22 @@
 # selenium and a browser so the user can see the results. Not very code different
 # yet.
 
-import sys
 
-from calleridlist import callerIdList
-from blacklist import blacklist
-from . import callercomplaints
-from .whocalledus import whocalled
-from .whocallsme import whocallsme
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     raise NotImplementedError  # when you put in your password, take this out
-    wc = whocalled('YourUserName', 'YourPassword')
+    wc = whocalled("YourUserName", "YourPassword")
     wcm = whocallsme()  # requires selenium install and configuration
     cc = callercomplaints()
 
     it = callerIdList()
     it.loadFromFile()
-    it.pickNewBlacklistEntries( [ wc, wcm, cc ])
-    #TODO compare to local address book on mac?
+    it.pickNewBlacklistEntries([wc, wcm, cc])
+    # TODO compare to local address book on mac?
 
     bl = blacklist()
     bl.loadFromFile()
-    bl.merge( it.getNewBlacklistEntries() )
-    #print bl
+    bl.merge(it.getNewBlacklistEntries())
+    # print bl
     bl.save()
 
     sys.exit(0)

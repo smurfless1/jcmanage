@@ -19,13 +19,13 @@ score checking libs should be the ones that don't depend on a real browser
 """
 from . import callercomplaints
 
-from lib.calleridlist import callerIdList
-from lib import blacklist
-from .whocalledus import whocalled
+from libs.calleridlist import callerIdList
+from libs import blacklist
+from whocalledus import whocalled
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     raise NotImplementedError  # when you put in your password, take this out
-    wc = whocalled('YourUserName', 'YourPassword')
+    wc = whocalled("YourUserName", "YourPassword")
     cc = callercomplaints()
 
     it = callerIdList()
@@ -35,7 +35,5 @@ if __name__ == '__main__':
     bl = blacklist()
     bl.loadFromFile()
     bl.merge(it.getNewBlacklistEntries())
-    #print bl
+    # print bl
     bl.save()
-
-

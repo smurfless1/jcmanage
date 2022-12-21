@@ -16,7 +16,7 @@
 import urllib.request, urllib.parse, urllib.error
 import urllib.request, urllib.error, urllib.parse
 
-from lib.ratelimited import RateLimited
+from libs.ratelimited import RateLimited
 
 
 class whocalled:
@@ -34,10 +34,10 @@ class whocalled:
     """
 
     def __init__(self, name, passwd):
-        self.site = 'http://whocalled.us/do'
+        self.site = "http://whocalled.us/do"
         self.name = name
         self.passwd = passwd
-        self.headers = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
+        self.headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"}
 
     def _sendit(self, values):
         url = self.site
@@ -49,41 +49,43 @@ class whocalled:
     @RateLimited(1)
     def getScore(self, number):
         values = {
-                'action':'getScore',
-                'name' : self.name,
-                'pass': self.passwd,
-                'phoneNumber' : number
+            "action": "getScore",
+            "name": self.name,
+            "pass": self.passwd,
+            "phoneNumber": number,
         }
         try:
             response = self._sendit(values)
-            success = response.split('&')[0].split('=')[1]
+            success = response.split("&")[0].split("=")[1]
             if success == "1":
-                score = response.split('&')[1].split('=')[1]
+                score = response.split("&")[1].split("=")[1]
                 return score
         except:
             pass
         return "Failed to get a response."
 
     @RateLimited(1)
-    def report(self, number, dateString='', callerString='', guessedName='',
-        zipcode=''):
+    def report(
+        self, number, dateString="", callerString="", guessedName="", zipcode=""
+    ):
         values = {
-            'action': 'report',
-            'name': self.name,
-            'pass': self.passwd,
-            'phoneNumber': number,
-            'date': dateString,
-            'callerID': callerString,
-            'identity': guessedName,
-            'postalCode': zipcode
+            "action": "report",
+            "name": self.name,
+            "pass": self.passwd,
+            "phoneNumber": number,
+            "date": dateString,
+            "callerID": callerString,
+            "identity": guessedName,
+            "postalCode": zipcode,
         }
         response = self._sendit(values)
-        #TODO not sure if I care about results.
+        # TODO not sure if I care about results.
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     import sys
+
     raise NotImplementedError  # when you put in your password, take this out
-    wc = whocalled('YourUserName', 'YourPassword')
+    wc = whocalled("YourUserName", "YourPassword")
     score = wc.getScore(sys.argv[1])
     print(score)
-

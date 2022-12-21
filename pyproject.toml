@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "jcmanage"
+version = "0.1.0"
+description = ""
+authors = ["David Brown <forums@smurfless.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+bs4 = "^0.0.1"
+mechanize = "^0.4.8"
+notifier = "^1.0.3"
+pync = "^2.0.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+poetry2setup = "^1.1.0"
+invoke = "^1.7.3"
+keyring = "^23.11.0"
+
+[[tool.poetry.source]]
+name = "gitea"
+url = "http://sinus.smurfless.com:3000/api/packages/smurfless1/pypi/simple"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+remotebrowser = 'remotebrowser_server.server:serve'

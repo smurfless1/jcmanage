@@ -16,15 +16,16 @@
 import mechanize
 import http.cookiejar
 from bs4 import BeautifulSoup
-from lib.ratelimited import RateLimited
+from libs.ratelimited import RateLimited
+
 
 class callercomplaints:
     """
-sudo pip install beautifulsoup4 html5lib lxml mechanize
+    sudo pip install beautifulsoup4 html5lib lxml mechanize
     """
 
     def __init__(self):
-        self.front = 'http://www.callercomplaints.com'
+        self.front = "http://www.callercomplaints.com"
 
     @RateLimited(maxPerSecond=1)
     def _sendit(self, number):
@@ -37,19 +38,24 @@ sudo pip install beautifulsoup4 html5lib lxml mechanize
 
             # Set Browser options
             br.set_handle_equiv(True)
-            #br.set_handle_gzip(True)  # too noisy
+            # br.set_handle_gzip(True)  # too noisy
             br.set_handle_redirect(True)
             br.set_handle_referer(True)
             br.set_handle_robots(False)
 
             br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
 
-            #br.set_debug_http(True)
-            #br.set_debug_redirects(True)
-            #br.set_debug_responses(True)
+            # br.set_debug_http(True)
+            # br.set_debug_redirects(True)
+            # br.set_debug_responses(True)
 
             # Firefox on Fedora
-            br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+            br.addheaders = [
+                (
+                    "User-agent",
+                    "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1",
+                )
+            ]
 
             br.open(self.front)
 
@@ -61,27 +67,29 @@ sudo pip install beautifulsoup4 html5lib lxml mechanize
 
             # switch to BeautifulSoup, which I can actually find help on.
             soup = BeautifulSoup(br.response().read(), "lxml")
-            responses = soup.find_all('span', class_='big_text')
+            responses = soup.find_all("span", class_="big_text")
             for type in responses:
                 type = type.text
 
-            count = len(soup.find_all('div', class_='grayContent'))
+            count = len(soup.find_all("div", class_="grayContent"))
 
-            return type + ', ' + str(count)
+            return type + ", " + str(count)
         except:
             pass
 
     def getScore(self, number):
         return self._sendit(number)
 
-    def report(self, number, dateString='', callerString='', guessedName='',
-        zipcode=''):
-        #TODO
+    def report(
+        self, number, dateString="", callerString="", guessedName="", zipcode=""
+    ):
+        # TODO
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wc = callercomplaints()
     import sys
+
     score = wc.getScore(sys.argv[1])
     print(score)
-
