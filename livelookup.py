@@ -25,7 +25,7 @@ from lib.calleridentry import callerIdEntry
 pattern = re.compile('.-DATE = (.*)--TIME = (.*)--NMBR = (.*)--NAME = (.*)--')
 
 #raise NotImplementedError  # when you put in your password, take this out
-wc = whocalled('TheSmurflessOne', 'whomper')
+wc = whocalled('username', 'password')  # todo keyring?
 
 s = socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
