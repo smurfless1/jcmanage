@@ -1,5 +1,5 @@
 # Library callercomplaints, queries callercomplaints.com for phone number scores
-# Copyright (C) 2014 David Brown
+# Copyright (C) 2022 David Brown
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -14,7 +14,7 @@
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import mechanize
-import cookielib
+import http.cookiejar
 from bs4 import BeautifulSoup
 from lib.ratelimited import RateLimited
 
@@ -32,7 +32,7 @@ sudo pip install beautifulsoup4 html5lib lxml mechanize
             # Set Browser
             br = mechanize.Browser()
 
-            cj = cookielib.LWPCookieJar()
+            cj = http.cookiejar.LWPCookieJar()
             br.set_cookiejar(cj)
 
             # Set Browser options
@@ -83,5 +83,5 @@ if __name__ == '__main__':
     wc = callercomplaints()
     import sys
     score = wc.getScore(sys.argv[1])
-    print score
+    print(score)
 

@@ -26,7 +26,7 @@ for i in range(0,1000):
         entry.setTestField('NMBR = %03d' % i)
         entry.setDate('032510')
         entry.setComment('IGNORING')
-        print entry
+        print(entry)
 
         #print "NMBR = %03d?        032510        BAD AREA CODE" % i
 

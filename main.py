@@ -17,11 +17,11 @@
 This is meant to be run via ssh on the computer that runs jcblock, so the
 score checking libs should be the ones that don't depend on a real browser
 """
-import callercomplaints
+from . import callercomplaints
 
 from lib.calleridlist import callerIdList
 from lib import blacklist
-from whocalledus import whocalled
+from .whocalledus import whocalled
 
 if __name__ == '__main__':
     raise NotImplementedError  # when you put in your password, take this out

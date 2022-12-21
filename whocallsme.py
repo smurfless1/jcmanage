@@ -56,7 +56,7 @@ class whocallsme:
             except NoSuchElementException:
                 assert 0, "Can't find listings"
         except:
-            print "Couldn't get a proper response."
+            print("Couldn't get a proper response.")
         time.sleep(5)
         self.browser.close()
         self.browser.quit()
@@ -70,5 +70,5 @@ if __name__ == '__main__':
     wc = whocallsme()
     import sys
     score = wc.getScore(sys.argv[1])
-    print score
+    print(score)
 

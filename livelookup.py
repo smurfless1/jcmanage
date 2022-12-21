@@ -18,7 +18,7 @@ from socket import *
 import re
 
 from pync import Notifier
-from whocalledus import *
+from .whocalledus import *
 from lib.calleridentry import callerIdEntry
 
 # sample input: --DATE = 032914--TIME = 1007--NMBR = 8885551212--NAME = V32913072900491--
@@ -30,23 +30,23 @@ wc = whocalled('username', 'password')  # todo keyring?
 s = socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 s.bind(('0.0.0.0', 9753))
-print 'udp ready!'
+print('udp ready!')
 BUFSIZE = 512
 while True:
     data, addr = s.recvfrom(BUFSIZE)
-    print('server received %r from %r' % (data, addr))
+    print(('server received %r from %r' % (data, addr)))
 
     result = pattern.match(data)
     if result:
         entry = callerIdEntry()
         entry.fromString(data)
 
-        print "Number to look up: "
+        print("Number to look up: ")
         #print result.group(3)
         entry.parts['NMBR'].strip()
-        print "Score: "
+        print("Score: ")
         score =  wc.getScore(result.group(3))
-        print score
+        print(score)
         #entry.parts['NAME'].strip()
         Notifier.notify('Score: %s' % score, title='Phone')
 

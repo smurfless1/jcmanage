@@ -21,9 +21,9 @@ import sys
 
 from calleridlist import callerIdList
 from blacklist import blacklist
-import callercomplaints
-from whocalledus import whocalled
-from whocallsme import whocallsme
+from . import callercomplaints
+from .whocalledus import whocalled
+from .whocallsme import whocallsme
 
 
 if __name__ == '__main__':

@@ -21,7 +21,7 @@ try:
     soup = BeautifulSoup(browser.page_source, "lxml")
 
     count = len(soup.find_all('form'))
-    print str(count)
+    print(str(count))
 
 except:
-    print 'Well, that didnt work'
+    print('Well, that didnt work')

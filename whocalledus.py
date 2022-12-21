@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 
 from lib.ratelimited import RateLimited
 
@@ -41,9 +41,9 @@ class whocalled:
 
     def _sendit(self, values):
         url = self.site
-        data = urllib.urlencode(values)
-        req = urllib2.Request(url, data, self.headers)
-        response = urllib2.urlopen(req)
+        data = urllib.parse.urlencode(values)
+        req = urllib.request.Request(url, data, self.headers)
+        response = urllib.request.urlopen(req)
         return response.read()
 
     @RateLimited(1)
@@ -85,5 +85,5 @@ if __name__ == '__main__':
     raise NotImplementedError  # when you put in your password, take this out
     wc = whocalled('YourUserName', 'YourPassword')
     score = wc.getScore(sys.argv[1])
-    print score
+    print(score)
 
