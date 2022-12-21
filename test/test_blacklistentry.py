@@ -15,67 +15,68 @@
 
 import unittest
 
-from lib.blacklistentry import blacklistEntry
+from jcmanage.libs.blacklistentry import blacklistEntry
 
 
 class TestBlacklistEntry(unittest.TestCase):
     def given_an_entry(self):
         self.entry = blacklistEntry()
         self.assertTrue(len(self.entry.test) == 19)
-        self.assertEquals(self.entry.test, '                   ')
+        self.assertEqual(self.entry.test, "                   ")
 
-        self.entry.fromString('Salt Lake Ci UT?   062013        1-888-555-1212')
-        self.assertEquals(self.entry.test, 'Salt Lake Ci UT?   ')
-        self.assertEquals(self.entry.date, '062013        ')
-        self.assertEquals(self.entry.comment, '1-888-555-1212      ')
-        self.assertEquals(len(self.entry.comment), 20)
+        self.entry.fromString("Salt Lake Ci UT?   062013        1-888-555-1212")
+        self.assertEqual(self.entry.test, "Salt Lake Ci UT?   ")
+        self.assertEqual(self.entry.date, "062013        ")
+        self.assertEqual(self.entry.comment, "1-888-555-1212      ")
+        self.assertEqual(len(self.entry.comment), 20)
 
-        self.assertEquals(self.entry.getKey(), 'Salt Lake Ci UT?   ')
+        self.assertEqual(self.entry.getKey(), "Salt Lake Ci UT?   ")
 
     def test_CreateFromStrings(self):
         self.given_an_entry()
 
     def test_CreateFromScratch(self):
         entry = blacklistEntry()
-        entry.setTestField('asdf')
-        entry.setDate('060606')
-        entry.setComment('')
-        self.assertEquals(entry.getKey(), 'asdf?              ')
+        entry.setTestField("asdf")
+        entry.setDate("060606")
+        entry.setComment("")
+        self.assertEqual(entry.getKey(), "asdf?              ")
 
     def test_keeps_dashes(self):
         entry = blacklistEntry()
-        entry.fromString('Salt Lake Ci UT?   ------        1-888-555-1212')
-        self.assertEquals(entry.test, 'Salt Lake Ci UT?   ')
-        self.assertEquals(entry.date, '------        ')
-        self.assertEquals(entry.comment, '1-888-555-1212      ')
-        self.assertEquals(entry.getValue(),
-                          'Salt Lake Ci UT?   ------        1-888-555-1212      ')
-        self.assertEquals(entry.getKey(), 'Salt Lake Ci UT?   ')
+        entry.fromString("Salt Lake Ci UT?   ------        1-888-555-1212")
+        self.assertEqual(entry.test, "Salt Lake Ci UT?   ")
+        self.assertEqual(entry.date, "------        ")
+        self.assertEqual(entry.comment, "1-888-555-1212      ")
+        self.assertEqual(
+            entry.getValue(), "Salt Lake Ci UT?   ------        1-888-555-1212      "
+        )
+        self.assertEqual(entry.getKey(), "Salt Lake Ci UT?   ")
 
     def test_wildcard_created(self):
         entry = blacklistEntry()
-        entry.setTestField('NMBR = 002')
-        entry.setDate('060606')
-        entry.setComment('')
-        self.assertEquals(entry.getKey(), 'NMBR = 002?        ')
+        entry.setTestField("NMBR = 002")
+        entry.setDate("060606")
+        entry.setComment("")
+        self.assertEqual(entry.getKey(), "NMBR = 002?        ")
 
     def test_equals(self):
         entry = blacklistEntry()
-        entry.setTestField('0020030040')
+        entry.setTestField("0020030040")
         entry2 = blacklistEntry()
-        entry2.setTestField('0020030040')
-        self.assertEquals(entry, entry2)
+        entry2.setTestField("0020030040")
+        self.assertEqual(entry, entry2)
 
     def test_wildcard_matches(self):
         entry = blacklistEntry()
-        entry.setTestField('NMBR = 002')
-        entry.setDate('060606')
-        entry.setComment('')
+        entry.setTestField("NMBR = 002")
+        entry.setDate("060606")
+        entry.setComment("")
         entry2 = blacklistEntry()
-        entry2.setTestField('0020030040')
-        self.assertEquals(entry, entry2)
-        self.assertEquals(entry2, entry)
+        entry2.setTestField("0020030040")
+        self.assertEqual(entry, entry2)
+        self.assertEqual(entry2, entry)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
-

@@ -21,34 +21,34 @@ from lib.calleridlist import callerIdList
 class TestCallerIdList(unittest.TestCase):
     def test_CreateList(self):
         it = callerIdList()
-        self.assertEquals(0, len(it.dict))
-        self.assertEquals(0, len(it.myset))
+        self.assertEqual(0, len(it.dict))
+        self.assertEqual(0, len(it.myset))
 
-    #@fudge.patch('')
+    # @fudge.patch('')
     def test_load_removes_duplicates(self):
         it = callerIdList()
-        lines=[
-'#THIS IS A COMMENT',
-'#--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --',
-'--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --',
-'--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --',
+        lines = [
+            "#THIS IS A COMMENT",
+            "#--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --",
+            "--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --",
+            "--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --",
         ]
         it.load(lines)
-        self.assertEquals(1, len(it.dict))
-        self.assertEquals(0, len(it.myset))
+        self.assertEqual(1, len(it.dict))
+        self.assertEqual(0, len(it.myset))
 
     def test_load(self):
         it = callerIdList()
-        lines=[
-'#THIS IS A COMMENT',
-'#--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --',
-'--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --',
-'--DATE = 061913--TIME = 0848--NMBR = 4087727741--NAME = Scum Sucker    --',
+        lines = [
+            "#THIS IS A COMMENT",
+            "#--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --",
+            "--DATE = 061913--TIME = 0848--NMBR = 8885551212--NAME = Scum Sucker    --",
+            "--DATE = 061913--TIME = 0848--NMBR = 4087727741--NAME = Scum Sucker    --",
         ]
         it.load(lines)
-        self.assertEquals(2, len(it.dict))
-        self.assertEquals(0, len(it.myset))
+        self.assertEqual(2, len(it.dict))
+        self.assertEqual(0, len(it.myset))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
-

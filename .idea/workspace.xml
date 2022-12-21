@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b495665-ec29-4867-b92c-c12a0576125a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/callercomplaints.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/callercomplaints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livelookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/livelookup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_remote.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/main_remote.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makeBadEntries.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/makeBadEntries.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/play.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_tests" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/run_tests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whocalledus.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/whocalledus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whocallsme.py" beforeDir="false" afterPath="$PROJECT_DIR$/jcmanage/whocallsme.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_blacklist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_blacklistentry.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_blacklistentry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_calleridentry.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_calleridentry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_calleridlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_calleridlist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +148,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "/Users/davidbrown/src/python/jcmanage",
+    "last_opened_file_path": "/Users/davidbrown/src/python/jcmanage/jcmanage",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -164,14 +158,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jcmanage" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jcmanage/lib" />
       <recent name="$PROJECT_DIR$/jcmanage" />
       <recent name="$PROJECT_DIR$/scripts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
   <component name="RunManager" selected="Python.play">
@@ -256,7 +251,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1398879353662</updated>
-      <workItem from="1671599067277" duration="920000" />
+      <workItem from="1671599067277" duration="1319000" />
     </task>
     <task id="LOCAL-00001" summary="Copyrighted and sanitized for initial commit.">
       <created>1398881816683</created>
@@ -342,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671599522062</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="black formatting, find missing files">
+      <created>1671600245555</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671600245555</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -395,7 +397,8 @@
     <MESSAGE value="More info." />
     <MESSAGE value="General cleanup" />
     <MESSAGE value="2to3 updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="2to3 updates" />
+    <MESSAGE value="black formatting, find missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="black formatting, find missing files" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
